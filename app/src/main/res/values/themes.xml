@@ -1,0 +1,12 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.AndroidTemplate" parent="Theme.Material3.DynamicColors.Light">
+        <item name="colorPrimary">@color/overlay_light_primary</item>
+        <item name="colorOnPrimary">@color/overlay_light_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/overlay_light_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/overlay_light_onPrimaryContainer</item>
+    </style>
+
+    <style name="Theme.AndroidTemplate" parent="Base.Theme.AndroidTemplate" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+</resources>

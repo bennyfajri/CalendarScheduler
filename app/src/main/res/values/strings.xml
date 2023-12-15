@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Calendar Scheduler</string>
+    <string name="must_login_first">Silahkan login menggunakan akun google anda dahulu</string>
+    <string name="attention">Perhatian</string>
+    <string name="close_app">Tutup Aplikasi</string>
+    <string name="login">Login</string>
+</resources>
