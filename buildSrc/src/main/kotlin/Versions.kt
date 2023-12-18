@@ -80,6 +80,8 @@ object Versions {
     const val chucker = "3.5.2"
 
     const val calendarView = "2.4.1"
+    const val parallaxImageView = "1.2.1"
+    const val materialCalendar = "2.0.1"
 
     const val paging = "3.1.1"
     const val dataStore = "1.0.0"

@@ -67,6 +67,9 @@ object Deps {
     val window by lazy { "androidx.window:window:${Versions.window}" }
     val calendarView by lazy { "com.kizitonwose.calendar:view:${Versions.calendarView}" }
 
+    val parallaxImageView by lazy { "com.kazakago.parallaximageview:parallaximageview:${Versions.parallaxImageView}" }
+    val materialCalendar by lazy { "com.github.prolificinteractive:material-calendarview:${Versions.materialCalendar}" }
+
     //Boucy
     val valkriaineBouncy by lazy { "com.github.valkriaine:Bouncy:${Versions.valkriaineBouncy}" }
 

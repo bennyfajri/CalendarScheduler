@@ -4,4 +4,8 @@
     <string name="attention">Perhatian</string>
     <string name="close_app">Tutup Aplikasi</string>
     <string name="login">Login</string>
+    <string name="more">More</string>
+    <string name="menu">Menu</string>
+    <string name="current_date">Current Date</string>
+    <string name="search">Search</string>
 </resources>

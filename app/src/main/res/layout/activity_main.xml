@@ -7,58 +7,113 @@
     android:orientation="vertical"
     tools:context=".ui.MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/exOneAppBarLayout"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/main_color"
+            android:paddingVertical="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.077"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0">
+
+            <ImageView
+                android:id="@+id/iv_menu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="?actionBarItemBackground"
+                android:padding="15dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/ic_menu"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.015"
+                app:layout_constraintStart_toStartOf="parent"
+                app:tint="@color/secondary_text_color"
+                android:contentDescription="@string/menu" />
+
+            <LinearLayout
+                android:id="@+id/ll_date_picker"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:foreground="?selectableItemBackground"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="4dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_menu"
+                app:layout_constraintEnd_toStartOf="@id/iv_search"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@id/iv_menu"
+                app:layout_constraintTop_toTopOf="@+id/iv_menu"
+                tools:ignore="UseCompoundDrawables">
+
+                <TextView
+                    android:id="@+id/tv_date_picker_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="20sp"
+                    tools:text="@tools:sample/lorem" />
+
+                <ImageView
+                    android:id="@+id/iv_date_picker_arrow"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="@string/more"
+                    android:src="@drawable/ic_arrow_down" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_search"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="?actionBarItemBackground"
+                android:clickable="true"
+                android:padding="14dp"
+                android:src="@drawable/ic_search"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@id/iv_current_date"
+                android:focusable="true"
+                android:contentDescription="@string/search" />
+
+            <ImageView
+                android:id="@+id/iv_current_date"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:padding="14dp"
+                android:clickable="true"
+                app:layout_constraintDimensionRatio="1:1"
+                android:background="?actionBarItemBackground"
+                android:paddingHorizontal="4dp"
+                android:src="@drawable/ic_calendar_today"
+                app:layout_constraintEnd_toStartOf="@id/iv_more"
+                android:contentDescription="@string/current_date"
+                android:focusable="true" />
+
+            <ImageView
+                android:id="@+id/iv_more"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="?actionBarItemBackground"
+                android:clickable="true"
+                android:padding="14dp"
+                android:src="@drawable/ic_more"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:focusable="true"
+                android:contentDescription="@string/more" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_events"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="14dp">
-
-            <TextView
-                android:id="@+id/exOneYearText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                tools:text="2019" />
-
-            <TextView
-                android:id="@+id/exOneMonthText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:fontFamily="sans-serif-light"
-                android:textColor="@color/black"
-                android:textSize="32sp"
-                android:ellipsize="marquee"
-                tools:text="April" />
-
-        </LinearLayout>
-
-        <include
-            android:id="@+id/legendLayout"
-            layout="@layout/calendar_day_legend_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.kizitonwose.calendar.view.CalendarView
-            android:id="@+id/exOneCalendar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cv_dayViewResource="@layout/example_1_calendar_day" />
-
-    </FrameLayout>
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_event"/>
 
 </LinearLayout>

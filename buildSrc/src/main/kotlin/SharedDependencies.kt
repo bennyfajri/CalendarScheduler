@@ -31,5 +31,11 @@ object SharedDependencies {
 
         //calendar view
         add("implementation", Deps.calendarView)
+
+        //parallax image view
+        add("implementation", Deps.parallaxImageView)
+
+        //parallax image view
+        add("implementation", Deps.materialCalendar)
     }
 }

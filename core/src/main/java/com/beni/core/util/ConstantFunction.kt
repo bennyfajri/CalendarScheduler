@@ -1,25 +1,20 @@
 package com.beni.core.util
 
-import android.app.Activity
 import android.content.ContentResolver
 import android.content.Context
 import android.content.ContextWrapper
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import androidx.exifinterface.media.ExifInterface
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.view.View
 import android.widget.ArrayAdapter
+import androidx.exifinterface.media.ExifInterface
+import com.beni.core.R
 import com.bumptech.glide.load.resource.bitmap.TransformationUtils
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
-import com.beni.core.R
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -34,10 +29,6 @@ import java.io.InputStream
 import java.io.OutputStream
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
-import java.time.DayOfWeek
-import java.time.Month
-import java.time.YearMonth
-import java.time.format.TextStyle
 import java.util.Locale
 import java.util.UUID
 

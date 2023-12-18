@@ -6,6 +6,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.beni.calendarscheduler.EventsAdapter
 import com.beni.calendarscheduler.R
 import com.beni.calendarscheduler.databinding.ActivityMainBinding
 import com.beni.core.util.ConstantVariable.TAG
@@ -33,6 +35,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val viewModel: MainViewModel by viewModels()
     private lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var mAdapter: EventsAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        mAdapter = EventsAdapter()
         initializeUserAccount()
     }
 
@@ -104,21 +108,27 @@ class MainActivity : AppCompatActivity() {
 
                 val events = service.events()
                     .list("primary") // 'primary' refers to the user's primary calendar
-                    .setMaxResults(10) // Number of events to retrieve
+//                    .setMaxResults(10) // Number of events to retrieve
                     .execute()
 
                 // Handle retrieved events on the main thread
                 launch(Dispatchers.Main) {
                     val itemEvents = events.items
                     Log.d(TAG, "fetchCalendarEvents: $itemEvents")
-                    itemEvents.forEach { event ->
-                        event.start
-                    }
+                    mAdapter.submitList(itemEvents)
+                    setupRecyclerView()
                 }
             } catch (e: Exception) {
-                // Handle exceptions or errors here
                 e.printStackTrace()
             }
+        }
+    }
+
+    private fun setupRecyclerView() {
+        binding.rvEvents.apply {
+            adapter = mAdapter
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            setHasFixedSize(true)
         }
     }
 

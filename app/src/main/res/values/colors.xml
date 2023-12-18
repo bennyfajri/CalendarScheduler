@@ -6,4 +6,13 @@
     <color name="overlay_light_onPrimary">#FFFFFF</color>
     <color name= "overlay_light_primaryContainer">#FFDADB</color>
     <color name="overlay_light_onPrimaryContainer">#400008</color>
+
+    <color name="main_color">#F1F4FB</color>
+    <color name="secondary_color">#FFFFFF</color>
+
+    <color name="main_text_color">#1F1F1F</color>
+    <color name="secondary_text_color">#444746</color>
+
+    <color name="blue_color">#0D58C7</color>
+    <color name="light_gray_color">#D0D0D0</color>
 </resources>
