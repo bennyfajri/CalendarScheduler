@@ -1,15 +1,16 @@
-package com.beni.calendarscheduler.ui
+package com.beni.calendarscheduler.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.beni.calendarscheduler.EventsAdapter
 import com.beni.calendarscheduler.R
 import com.beni.calendarscheduler.databinding.ActivityMainBinding
+import com.beni.calendarscheduler.detail.AddEventActivity
 import com.beni.core.util.ConstantVariable.TAG
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -33,7 +34,6 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private val viewModel: MainViewModel by viewModels()
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var mAdapter: EventsAdapter
 
@@ -45,6 +45,21 @@ class MainActivity : AppCompatActivity() {
 
         mAdapter = EventsAdapter()
         initializeUserAccount()
+        goToAddEvent()
+    }
+
+    private fun goToAddEvent() {
+        binding.fabAdd.setOnClickListener {
+            launcherInputEvent.launch(Intent(this, AddEventActivity::class.java))
+        }
+    }
+
+    private val launcherInputEvent = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == AddEventActivity.RESULT_INPUT_EVENT) {
+            initializeUserAccount()
+        }
     }
 
     private fun initializeUserAccount() {
@@ -66,27 +81,22 @@ class MainActivity : AppCompatActivity() {
             MaterialAlertDialogBuilder(this@MainActivity)
                 .setMessage(getString(R.string.must_login_first))
                 .setTitle(getString(R.string.attention))
-                .setNegativeButton(getString(R.string.close_app)) { dialog, i ->
+                .setNegativeButton(getString(R.string.close_app)) { dialog, _ ->
                     dialog.dismiss()
                     finishAffinity()
                 }
-                .setPositiveButton(getString(R.string.login)) { dialog, i ->
+                .setPositiveButton(getString(R.string.login)) { dialog, _ ->
                     dialog.dismiss()
                     signIn()
-                }
-
-                .show()
+                }.show()
         }
     }
 
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
             val account = completedTask.getResult(ApiException::class.java)
-            // Use account to access the Google Calendar API
-            // Call method to fetch calendar events
             fetchCalendarEvents(account!!)
         } catch (e: ApiException) {
-            // Handle sign-in failure (e.g., display an error message)
             e.printStackTrace()
         }
     }

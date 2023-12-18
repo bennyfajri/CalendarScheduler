@@ -29,8 +29,8 @@ class EventsAdapter : ListAdapter<Event, EventsAdapter.ViewHolder>(DIFF_CALLBACK
         RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Event) {
             binding.apply {
-                tvDate.text = data.start.dateTime.formatDate("dd")
-                tvDay.text = data.start.dateTime.formatDate("EEE")
+                tvDate.text = data.start.dateTime?.formatDate("dd") ?: ""
+                tvDay.text = data.start.dateTime?.formatDate("EEE") ?: ""
                 tvEvent.text = data.summary
             }
         }

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".detail.AddEventActivity">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="-8dp"
+        android:background="@color/main_color"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_add"
+        app:layout_constraintTop_toTopOf="@+id/ic_close" />
+
+    <ImageView
+        android:id="@+id/ic_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?actionBarItemBackground"
+        android:clickable="true"
+        android:contentDescription="@string/menu"
+        android:focusable="true"
+        android:padding="15dp"
+        android:src="@drawable/ic_close"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/secondary_text_color" />
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="@string/save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/il_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-2dp"
+        app:boxBackgroundMode="none"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="@+id/btn_add"
+        app:layout_constraintStart_toEndOf="@+id/ic_close"
+        app:layout_constraintTop_toBottomOf="@+id/view">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_bold"
+            android:hint="@string/add_title"
+            android:letterSpacing="0"
+            android:inputType="textCapWords"
+            android:textColor="@color/main_text_color"
+            android:textSize="30sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/il_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-2dp"
+        app:boxBackgroundMode="none"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="@+id/btn_add"
+        app:layout_constraintStart_toEndOf="@+id/ic_close"
+        app:layout_constraintTop_toBottomOf="@+id/il_title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito"
+            android:hint="@string/event_description"
+            android:letterSpacing="0"
+            android:textColor="@color/main_text_color" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/menu"
+        android:padding="15dp"
+        android:src="@drawable/ic_time"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/il_desc"
+        app:tint="@color/secondary_text_color" />
+
+    <TextView
+        android:id="@+id/tv_start_time"
+        style="@style/text_semi_bold16"
+        app:layout_constraintEnd_toEndOf="@+id/btn_add"
+        app:layout_constraintTop_toTopOf="@+id/tv_start_date"
+        tools:text="@tools:sample/date/hhmm" />
+
+    <TextView
+        android:id="@+id/tv_start_date"
+        style="@style/text_semi_bold16"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_start_time"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        tools:text="@tools:sample/date/hhmmss" />
+
+    <TextView
+        android:id="@+id/tv_end_time"
+        style="@style/text_semi_bold16"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/il_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_start_time"
+        tools:text="@tools:sample/date/hhmm" />
+
+    <TextView
+        android:id="@+id/tv_end_date"
+        style="@style/text_semi_bold16"
+        app:layout_constraintEnd_toStartOf="@+id/tv_start_time"
+        app:layout_constraintStart_toStartOf="@+id/tv_start_date"
+        app:layout_constraintTop_toTopOf="@+id/tv_end_time"
+        tools:text="@tools:sample/date/hhmmss" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,4 +8,9 @@
     <string name="menu">Menu</string>
     <string name="current_date">Current Date</string>
     <string name="search">Search</string>
+    <string name="add">add</string>
+    <string name="save">Save</string>
+    <string name="add_title">Add title</string>
+    <string name="event_description">Description of the event</string>
+    <string name="must_not_empty">Must not empty</string>
 </resources>
