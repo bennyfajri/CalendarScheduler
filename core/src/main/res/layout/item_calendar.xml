@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.kazakago.parallaximageview.ParallaxImageView
+            android:id="@+id/iv_month_img"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            tools:src="@drawable/i_06_jun" />
+
+        <TextView
+            android:id="@+id/tv_month_title"
+            style="@style/text_regular22"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="62dp"
+            android:layout_marginTop="16dp"
+            android:textColor="#1F1F1F"
+            tools:text="@tools:sample/lorem" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_week"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp">
+
+        <TextView
+            android:id="@+id/tv_week1"
+            style="@style/text_regular12"
+            android:layout_width="match_parent"
+            android:paddingVertical="6dp"
+            android:paddingStart="48dp"
+            tools:text="@tools:sample/lorem" />
+
+        <TextView
+            android:id="@+id/tv_week2"
+            style="@style/text_regular12"
+            android:layout_width="match_parent"
+            android:paddingVertical="6dp"
+            android:paddingStart="48dp"
+            tools:text="@tools:sample/lorem" />
+
+        <TextView
+            android:id="@+id/tv_week3"
+            style="@style/text_regular12"
+            android:layout_width="match_parent"
+            android:paddingVertical="6dp"
+            android:paddingStart="48dp"
+            tools:text="@tools:sample/lorem" />
+
+        <TextView
+            android:id="@+id/tv_week4"
+            style="@style/text_regular12"
+            android:layout_width="match_parent"
+            android:paddingVertical="6dp"
+            android:paddingStart="48dp"
+            tools:text="@tools:sample/lorem" />
+
+        <TextView
+            android:id="@+id/tv_week5"
+            style="@style/text_regular12"
+            android:layout_width="match_parent"
+            android:paddingVertical="6dp"
+            android:paddingStart="48dp"
+            android:visibility="gone"
+            tools:text="@tools:sample/lorem"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -37,5 +37,8 @@ object SharedDependencies {
 
         //parallax image view
         add("implementation", Deps.materialCalendar)
+
+        //play calendar
+        add("implementation", Deps.playCalendar)
     }
 }
