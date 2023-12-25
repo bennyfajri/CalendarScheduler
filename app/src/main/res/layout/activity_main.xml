@@ -7,6 +7,16 @@
     android:orientation="vertical"
     tools:context=".main.MainActivity">
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
             android:id="@+id/cl_toolbar"
             android:layout_width="match_parent"
@@ -37,12 +47,13 @@
             <LinearLayout
                 android:id="@+id/ll_date_picker"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:foreground="?selectableItemBackground"
                 android:gravity="center_vertical"
                 android:paddingHorizontal="4dp"
                 android:clickable="true"
                 android:focusable="true"
+                android:layout_gravity="center"
                 android:layout_weight="3"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_menu"
                 app:layout_constraintEnd_toStartOf="@id/iv_search"
@@ -115,9 +126,12 @@
         android:id="@+id/rv_events"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cl_toolbar"
-        tools:listitem="@layout/item_event" />
+        tools:listitem="@layout/item_calendar" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add"

@@ -1,4 +1,4 @@
-package com.beni.calendarscheduler
+package com.beni.core.ui
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.beni.calendarscheduler.databinding.ItemEventBinding
+import com.beni.core.databinding.ItemEventBinding
 import com.google.api.client.util.DateTime
 import com.google.api.services.calendar.model.Event
 import java.text.SimpleDateFormat
