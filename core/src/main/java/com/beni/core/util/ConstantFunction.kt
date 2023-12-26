@@ -1,9 +1,9 @@
 package com.beni.core.util
 
+import android.content.Context
 import com.beni.core.R
 import com.google.android.material.textfield.TextInputLayout
 import com.prolificinteractive.materialcalendarview.CalendarDay
-import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -17,11 +17,6 @@ object ConstantFunction {
         this.error = message
         this.requestFocus()
         return false
-    }
-
-    fun String.getErrorMessage(): String{
-        val jObject = JSONObject(this)
-        return jObject.getString("message")
     }
 
     fun Calendar.changeFormat(format: String): String {
@@ -72,4 +67,9 @@ object ConstantFunction {
     }
 
     fun upperFirst(str: String) = str.substring(0, 1).uppercase() + str.substring(1)
+
+    fun Int.dpToInt(context: Context): Float {
+        val scale = context.resources.displayMetrics.density
+        return (this * scale + 0.5f)
+    }
 }

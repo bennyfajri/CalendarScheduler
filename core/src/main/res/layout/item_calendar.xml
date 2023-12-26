@@ -40,6 +40,8 @@
             android:layout_width="match_parent"
             android:paddingVertical="6dp"
             android:paddingStart="48dp"
+            android:visibility="gone"
+            tools:visibility="visible"
             tools:text="@tools:sample/lorem" />
 
         <TextView
@@ -48,6 +50,8 @@
             android:layout_width="match_parent"
             android:paddingVertical="6dp"
             android:paddingStart="48dp"
+            android:visibility="gone"
+            tools:visibility="visible"
             tools:text="@tools:sample/lorem" />
 
         <TextView
@@ -56,6 +60,8 @@
             android:layout_width="match_parent"
             android:paddingVertical="6dp"
             android:paddingStart="48dp"
+            android:visibility="gone"
+            tools:visibility="visible"
             tools:text="@tools:sample/lorem" />
 
         <TextView
@@ -64,6 +70,8 @@
             android:layout_width="match_parent"
             android:paddingVertical="6dp"
             android:paddingStart="48dp"
+            android:visibility="gone"
+            tools:visibility="visible"
             tools:text="@tools:sample/lorem" />
 
         <TextView
