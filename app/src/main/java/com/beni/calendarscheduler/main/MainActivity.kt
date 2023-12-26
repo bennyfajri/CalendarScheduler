@@ -72,7 +72,13 @@ class MainActivity : AppCompatActivity() {
                 layoutManager.scrollToPositionWithOffset(ConstantFunction.getPosition(CalendarDay.today().year, CalendarDay.today().month), 0)
 
             }
+        }
 
+        binding.apply {
+            ivCurrentDate.setOnClickListener {
+                tvDatePickerText.text = ConstantFunction.getTitleText(CalendarDay.today())
+                layoutManager.scrollToPositionWithOffset(ConstantFunction.getPosition(CalendarDay.today().year, CalendarDay.today().month), 0)
+            }
         }
 
     }
