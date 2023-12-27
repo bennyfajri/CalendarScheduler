@@ -36,6 +36,7 @@ class CalendarAdapter : ListAdapter<MCalendar, CalendarAdapter.ViewHolder>(DIFF_
                 ivMonthImg.setImageResource(data.img)
 
                 if (data.days.isNotEmpty()) {
+                    llWeek.removeAllViews()
                     for (i in data.days.indices) {
 //                        val itemBinding = ItemEventBinding.inflate(
 //                            LayoutInflater.from(context),
