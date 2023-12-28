@@ -176,7 +176,7 @@ class MainActivity : AppCompatActivity() {
 
                 // Handle retrieved events on the main thread
                 launch(Dispatchers.Main) {
-                    val itemEvents = events.items
+                    val itemEvents = events.items?.sortedBy { it.start.dateTime.value } ?: emptyList()
                     viewModel.dateList.observe(this@MainActivity) { calendar ->
                         val newCalendar = calendar as MutableList<MCalendar>
                         for (i in itemEvents.indices) {
