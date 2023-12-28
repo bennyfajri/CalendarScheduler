@@ -25,7 +25,7 @@ object ConstantFunction {
     }
 
     fun firstYear() = CalendarDay.today().year - 100
-    fun lastYear() = CalendarDay.today().year + 200
+    fun lastYear() = CalendarDay.today().year + 100
 
     fun getMonthImage(monthNum: Int) = when (monthNum) {
         1 -> R.drawable.i_01_jan

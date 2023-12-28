@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.beni.core.data.CalendarSchedularRepository
 import com.beni.core.data.local.models.MCalendar
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -16,20 +15,20 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val repository: CalendarSchedularRepository
 ) : ViewModel() {
-    private lateinit var _dateList: LiveData<List<MCalendar>>
+    private lateinit var _dateList: MutableLiveData<List<MCalendar>>
     val dateList: LiveData<List<MCalendar>> get() = _dateList
 
-    val isLoading = MutableLiveData(true)
+    val isLoading = repository.isLoading
 
     init {
         getDateListFromRepo()
     }
 
     fun getDateListFromRepo() = viewModelScope.launch {
-        if (!::_dateList.isInitialized) {
-            _dateList = repository.getDateList().asLiveData()
-            delay(1000)
-            isLoading.value = false
-        }
+            _dateList = repository.getDateList().asLiveData() as MutableLiveData<List<MCalendar>>
+    }
+
+    fun setEvent(newMCalendar: List<MCalendar>) = viewModelScope.launch {
+        _dateList.value = newMCalendar
     }
 }
