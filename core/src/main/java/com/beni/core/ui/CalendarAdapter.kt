@@ -70,6 +70,11 @@ class CalendarAdapter : ListAdapter<MCalendar, CalendarAdapter.ViewHolder>(DIFF_
                                     }
                                     val year = dateRange[1].split(",")[1]
                                     val dateTime = event.start.dateTime
+                                    val yesterdayDate = if (j > 0) {
+                                        data.events!![j - 1].start.dateTime.formatDate("dd, EEE")
+                                    } else {
+                                        null
+                                    }
 
                                     val endDateString = dateRange[1]
                                     val startDateString = if (dateRange[0].length < 3) {
@@ -93,9 +98,19 @@ class CalendarAdapter : ListAdapter<MCalendar, CalendarAdapter.ViewHolder>(DIFF_
                                             binding.root,
                                             false
                                         ).apply {
+                                            val dateTimeFormat = dateTime?.formatDate("dd, EEE")
                                             tvEvent.text = data.events!![j].summary ?: "--"
-                                            tvDate.text = dateTime?.formatDate("dd") ?: ""
-                                            tvDay.text = dateTime?.formatDate("EEE") ?: ""
+                                            tvDate.text = if (yesterdayDate != dateTimeFormat) {
+                                                dateTime?.formatDate("dd") ?: ""
+                                            } else {
+                                                ""
+                                            }
+
+                                            tvDay.text = if (yesterdayDate != dateTimeFormat) {
+                                                dateTime?.formatDate("EEE") ?: ""
+                                            } else {
+                                                ""
+                                            }
                                         }
                                         llWeek.addView(itemBinding.root)
                                     }
